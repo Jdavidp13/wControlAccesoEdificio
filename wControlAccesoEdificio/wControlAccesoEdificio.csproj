@@ -50,6 +50,7 @@
     <Compile Include="Data\Repository\EmpleadoRepository.cs" />
     <Compile Include="Data\Repository\IEmpleadoRepository.cs" />
     <Compile Include="Data\Repository\IVisitantesRepository.cs" />
+    <Compile Include="Data\Repository\VisitanteRepository.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Visitante.cs" />
     <Compile Include="Forms\Login.cs">
