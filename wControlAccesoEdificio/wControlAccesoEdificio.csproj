@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repository\EmpleadoRepository.cs" />
     <Compile Include="Data\Repository\IEmpleadoRepository.cs" />
     <Compile Include="Data\Repository\IVisitantesRepository.cs" />
     <Compile Include="Entities\Empleado.cs" />
