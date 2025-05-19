@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +83,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Entities\" />
+    <Folder Include="Data\Repository\" />
     <Folder Include="Factory\" />
     <Folder Include="Services\" />
   </ItemGroup>
