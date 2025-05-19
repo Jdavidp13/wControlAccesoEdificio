@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repository\IEmpleadoRepository.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Visitante.cs" />
     <Compile Include="Forms\Login.cs">
@@ -84,7 +85,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Repository\" />
     <Folder Include="Factory\" />
     <Folder Include="Services\" />
   </ItemGroup>
