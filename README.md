@@ -54,4 +54,4 @@ Este proyecto es una aplicación de escritorio desarrollada en **C# Windows Form
 ## Instrucciones para Compilar y Ejecutar
 
 1. **Clona el repositorio**
-   
+https://github.com/SebasG2806/wControlAccesoEdificio
