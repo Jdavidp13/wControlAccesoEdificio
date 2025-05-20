@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace wControlAccesoEdificio.Forms
 {
-    public partial class Empleado : Form
+    public partial class EmpleadoForm : Form
     {
-        public Empleado()
+        public EmpleadoForm()
         {
             InitializeComponent();
         }
