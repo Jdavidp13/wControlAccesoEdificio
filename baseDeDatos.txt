@@ -1,0 +1,140 @@
+--Crear base de datos
+CREATE DATABASE DB_ControlAccesoEdificio;
+
+USE DB_ControlAccesoEdificio;
+
+--Tablas del sistema
+--Tabla de usuarios para el login
+CREATE TABLE Usuarios (
+UsuarioID INT PRIMARY KEY IDENTITY(1,1),
+Usuario NVARCHAR(50) NOT NULL,
+Contraseña NVARCHAR(100) NOT NULL,
+Rol NVARCHAR(20) NOT NULL
+);
+
+--Tabla para las zonas
+CREATE TABLE Zonas(
+ZonaID INT PRIMARY KEY IDENTITY(1,1),
+NombreZona NVARCHAR(100) NOT NULL,
+AccesoRestringido BIT NOT NULL
+);
+
+--Tabla para los empleados
+CREATE TABLE Empleados (
+EmpleadoID INT PRIMARY KEY IDENTITY(1,1),
+Nombre NVARCHAR(100) NOT NULL,
+Rol NVARCHAR(50)NOT NULL,
+ZonaAcceso INT
+FOREIGN KEY (ZonaAcceso) REFERENCES Zonas(ZonaID)
+);
+
+--Tabla para visitantes
+CREATE TABLE Visitante(
+VisitanteID INT PRIMARY KEY IDENTITY(1,1),
+Nombre NVARCHAR(100) NOT NULL,
+Telefono NVARCHAR(20),
+MotivoVisita NVARCHAR(200)
+);
+
+--Tabla para Accesos
+CREATE TABLE Accesos (
+AccesoID INT PRIMARY KEY IDENTITY(1,1),
+EmpleadoID INT NULL, 
+VisitanteID INT NULL, 
+ZonaAcceso INT NOT NULL,
+FechaHoraEntrada DATETIME NOT NULL,
+FechaHoraSalida DATETIME,
+FOREIGN KEY (EmpleadoID) REFERENCES Empleados(EmpleadoID),
+FOREIGN KEY (VisitanteID) REFERENCES Visitante(VisitanteID), 
+FOREIGN KEY (ZonaAcceso) REFERENCES Zonas(ZonaID)
+);
+
+--Tabla para las alertas de seguridad
+CREATE TABLE AlertaSeguridad (
+AlertaID INT PRIMARY KEY IDENTITY(1,1),
+EmpleadoID INT NOT NULL,
+FechaHora DATETIME NOT NULL,
+TipoAlerta NVARCHAR(50),
+Descripcion NVARCHAR(300),
+FOREIGN KEY (EmpleadoID) REFERENCES Empleados(EmpleadoID)
+);
+
+INSERT INTO Usuarios (Usuario, Contraseña, Rol)
+VALUES ('admin','admin123','Administrador'),
+       ('seguridad','seg123','Seguridad');
+
+--Procedimientos almacenados
+CREATE PROCEDURE SP_RegistrarAcceso
+@EmpleadoID INT = NULL,
+@VisitanteID INT = NULL,
+@ZonaAcceso INT 
+AS
+BEGIN
+INSERT INTO Accesos (EmpleadoID,VisitanteID,ZonaAcceso,FechaHoraEntrada)
+VALUES(@EmpleadoID,@VisitanteID,@ZonaAcceso, GETDATE());
+END;
+
+CREATE PROCEDURE SP_GenerarAlerta 
+@EmpleadoID INT,
+@TipoAlerta NVARCHAR(50),
+@Descripcion NVARCHAR(300)
+AS
+BEGIN
+INSERT INTO AlertaSeguridad(EmpleadoID,FechaHora,TipoAlerta,Descripcion)
+VALUES (@EmpleadoID, GETDATE(),@TipoAlerta,@Descripcion);
+END; 
+
+CREATE PROCEDURE SP_ObtenerHistorialAccesos
+AS
+BEGIN 
+SELECT 
+A.AccesoID,
+E.Nombre AS Empleado,
+V.Nombre AS Visitante,
+Z.NombreZona,
+A.FechaHoraEntrada,
+A.FechaHoraSalida
+FROM Accesos A 
+LEFT JOIN Empleados E ON A.EmpleadoID = E.EmpleadoID
+LEFT JOIN Visitante V ON A.VisitanteID = V.VisitanteID
+INNER JOIN Zonas Z ON A.ZonaAcceso = Z.ZonaID
+ORDER BY A.FechaHoraEntrada DESC; 
+END; 
+
+
+CREATE PROCEDURE SP_AsignarZONA
+@EmpleadoID INT,
+@ZonaID INT 
+AS
+BEGIN
+UPDATE Empleados
+SET ZonaAcceso = @ZonaID
+WHERE EmpleadoID = @EmpleadoID;
+END;
+
+CREATE PROCEDURE SP_ReporteAccesoInusuales
+AS
+BEGIN
+SELECT 
+A.AccesoID,
+E.Nombre AS Empleado,
+Z.NombreZona,
+A.FechaHoraEntrada
+FROM Accesos A
+INNER JOIN Empleados E ON A.EmpleadoID = E.EmpleadoID
+INNER JOIN Zonas Z ON A.ZonaAcceso = Z.ZonaID
+WHERE 
+(DATEPART(HOUR,A.FechaHoraEntrada) NOT BETWEEN 7 AND 19)
+OR Z.AccesoRestringido = 1
+ORDER BY A.FechaHoraEntrada DESC;
+END; 
+
+CREATE PROCEDURE SP_ValidaRlOGIN
+@Usuario NVARCHAR(50),
+@Contraseña NVARCHAR(100)
+AS 
+BEGIN
+SELECT UsuarioID, Usuario, Rol
+FROM Usuarios
+WHERE Usuario = @Usuario AND Contraseña = @Contraseña; 
+END;
