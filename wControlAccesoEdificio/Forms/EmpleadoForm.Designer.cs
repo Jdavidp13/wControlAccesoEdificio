@@ -51,6 +51,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnEliminar.TabIndex = 19;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -61,6 +62,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnActualizar.TabIndex = 18;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -71,6 +73,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnAgregar.TabIndex = 17;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label3
             // 
@@ -131,6 +134,7 @@ namespace wControlAccesoEdificio.Forms
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(550, 150);
             this.dgvEmpleados.TabIndex = 10;
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             // 
             // EmpleadoForm
             // 
