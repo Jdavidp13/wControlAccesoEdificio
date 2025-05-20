@@ -37,7 +37,25 @@ namespace wControlAccesoEdificio.Forms
                     {
                         string rol = reader["Rol"].ToString();
                         MessageBox.Show($"Bienvenido, {usuario} ({rol})", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        this.Hide();
+                        Form formulario = null;
+                        if(rol == "Administrador")
+                        {
+                            formulario = new EmpleadoForm();
+                        }
+                        else if(rol == "Seguridad")
+                        {
+                            formulario = new VisitantesFrom();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rol no reconocido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.Show();
+                            return;
+                        }
+                        formulario.ShowDialog();
+                        this.Show();
+                       
                     }
                     else
                     {
