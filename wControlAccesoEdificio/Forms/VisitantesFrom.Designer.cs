@@ -49,6 +49,7 @@ namespace wControlAccesoEdificio.Forms
             this.dgvVisitantes.Name = "dgvVisitantes";
             this.dgvVisitantes.Size = new System.Drawing.Size(498, 150);
             this.dgvVisitantes.TabIndex = 0;
+            this.dgvVisitantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVisitantes_CellContentClick);
             // 
             // label1
             // 
@@ -110,6 +111,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
@@ -120,6 +122,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnActualizar.TabIndex = 8;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -130,6 +133,7 @@ namespace wControlAccesoEdificio.Forms
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // VisitantesFrom
             // 
