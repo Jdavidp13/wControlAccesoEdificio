@@ -28,7 +28,7 @@ Este proyecto es una aplicación de escritorio desarrollada en **C# Windows Form
 
 ## Diagrama Entidad-Relación
 
-![Diagrama ER](capturas/DiagramaDeClases)
+![Diagrama ER](Captura/DiagramaDeClases)
 
 ---
 
@@ -47,7 +47,7 @@ Este proyecto es una aplicación de escritorio desarrollada en **C# Windows Form
 
 | Login por roles | CRUD de Empleados | CRUD de Visitantes |
 |------------------|-------------------|---------------------|
-| ![Login](capturas/login.png) | ![Empleados](capturas/crud-empleados.png) | ![Visitantes](capturas/crud-visitantes.png) |
+| ![Login](Captura/Login.png) | ![Empleados](Captura/Empleados.png) | ![Visitantes](Captura/Visitantes.png) |
 
 ---
 
