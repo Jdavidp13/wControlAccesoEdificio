@@ -45,9 +45,10 @@ namespace wControlAccesoEdificio.Forms
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(454, 185);
+            this.btnEliminar.Location = new System.Drawing.Point(605, 228);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 56);
+            this.btnEliminar.Size = new System.Drawing.Size(137, 69);
             this.btnEliminar.TabIndex = 19;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@ namespace wControlAccesoEdificio.Forms
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(454, 113);
+            this.btnActualizar.Location = new System.Drawing.Point(605, 139);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(103, 56);
+            this.btnActualizar.Size = new System.Drawing.Size(137, 69);
             this.btnActualizar.TabIndex = 18;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@ namespace wControlAccesoEdificio.Forms
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(454, 42);
+            this.btnAgregar.Location = new System.Drawing.Point(605, 52);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(103, 56);
+            this.btnAgregar.Size = new System.Drawing.Size(137, 69);
             this.btnAgregar.TabIndex = 17;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -79,27 +82,30 @@ namespace wControlAccesoEdificio.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(25, 164);
+            this.label3.Location = new System.Drawing.Point(33, 202);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 21);
+            this.label3.Size = new System.Drawing.Size(55, 26);
             this.label3.TabIndex = 16;
             this.label3.Text = "ROL:";
             // 
             // cmbRol
             // 
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(128, 165);
+            this.cmbRol.Location = new System.Drawing.Point(171, 203);
+            this.cmbRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(190, 21);
+            this.cmbRol.Size = new System.Drawing.Size(252, 24);
             this.cmbRol.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 101);
+            this.label2.Location = new System.Drawing.Point(33, 124);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 21);
+            this.label2.Size = new System.Drawing.Size(74, 26);
             this.label2.TabIndex = 14;
             this.label2.Text = "ZONA:";
             // 
@@ -107,40 +113,45 @@ namespace wControlAccesoEdificio.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 42);
+            this.label1.Location = new System.Drawing.Point(33, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 21);
+            this.label1.Size = new System.Drawing.Size(104, 26);
             this.label1.TabIndex = 13;
             this.label1.Text = "NOMBRE:";
             // 
             // txtZona
             // 
-            this.txtZona.Location = new System.Drawing.Point(128, 101);
+            this.txtZona.Location = new System.Drawing.Point(171, 124);
+            this.txtZona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtZona.Name = "txtZona";
-            this.txtZona.Size = new System.Drawing.Size(190, 20);
+            this.txtZona.Size = new System.Drawing.Size(252, 22);
             this.txtZona.TabIndex = 12;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(128, 42);
+            this.txtNombre.Location = new System.Drawing.Point(171, 52);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(190, 20);
+            this.txtNombre.Size = new System.Drawing.Size(252, 22);
             this.txtNombre.TabIndex = 11;
             // 
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(7, 259);
+            this.dgvEmpleados.Location = new System.Drawing.Point(9, 319);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(550, 150);
+            this.dgvEmpleados.RowHeadersWidth = 51;
+            this.dgvEmpleados.Size = new System.Drawing.Size(733, 185);
             this.dgvEmpleados.TabIndex = 10;
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             // 
             // EmpleadoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 441);
+            this.ClientSize = new System.Drawing.Size(780, 543);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
@@ -151,8 +162,10 @@ namespace wControlAccesoEdificio.Forms
             this.Controls.Add(this.txtZona);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dgvEmpleados);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EmpleadoForm";
             this.Text = "EmpleadoForm";
+            this.Load += new System.EventHandler(this.EmpleadoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

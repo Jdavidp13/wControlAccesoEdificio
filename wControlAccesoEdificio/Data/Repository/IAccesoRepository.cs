@@ -7,12 +7,12 @@ using wControlAccesoEdificio.Entities;
 
 namespace wControlAccesoEdificio.Data.Repository
 {
-    public interface IEmpleadoRepository
+    public interface IAccesoRepository
     {
-        void Add(Empleado empleado);
-        IEnumerable<Empleado> GetAll();
-        Empleado GetById(int id);
-        void Update(Empleado empleado);
+        void Add(Acceso acceso);
+        IEnumerable<Acceso> GetAll();
+        Acceso GetById(int id);
+        void Update(Acceso acceso);
         void Delete(int id);
     }
 }

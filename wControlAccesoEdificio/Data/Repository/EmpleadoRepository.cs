@@ -12,70 +12,41 @@ namespace wControlAccesoEdificio.Data.Repository
 {
     public class EmpleadoRepository : IEmpleadoRepository
     {
-        private readonly SqlConnection _conn;
+        private List<Empleado> empleados = new List<Empleado>();
 
-        public EmpleadoRepository()
+        public void Add(Empleado empleado)
         {
-            _conn = DBconnection.Instancia.GetSqlConnection();
+            empleados.Add(empleado);
         }
 
-        public List<Empleado> GetAll()
+        public IEnumerable<Empleado> GetAll()
         {
-            var list = new List<Empleado>();
-            string query = "SELECT * FROM Empleados";
+            return empleados;
+        }
 
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            _conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+        public Empleado GetById(int id)
+        {
+            return empleados.Find(e => e.EmpleadoID == id);
+        }
+
+        public void Update(Empleado empleado)
+        {
+            var existing = GetById(empleado.EmpleadoID);
+            if (existing != null)
             {
-                list.Add(new Empleado
-                {
-                    EmpleadoID = (int)reader["EmpleadoID"],
-                    Nombre = reader["Nombre"].ToString(),
-                    Rol = reader["Rol"].ToString(),
-                    ZonaAcceso = (int)(reader["ZonaAcceso"]!=DBNull.Value?(int?)reader["ZonaAcceso"]:null)
-                });
+                existing.Nombre = empleado.Nombre;
+                existing.Rol = empleado.Rol;
+                existing.ZonaAcceso = empleado.ZonaAcceso;
             }
-            reader.Close();
-            _conn.Close();
-            return list;
         }
 
-        public void Añadir(Empleado empleado)
+        public void Delete(int id)
         {
-            string query = "INSERT INTO Empleados (Nombre, Rol, ZonaAcceso) VALUES (@Nombre, @Rol, @ZonaAcceso)";
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            cmd.Parameters.AddWithValue("@Nombre", empleado.Nombre);
-            cmd.Parameters.AddWithValue("@Rol", empleado.Rol);
-            cmd.Parameters.AddWithValue("@ZonaAcceso", (object)empleado.ZonaAcceso ?? DBNull.Value);
-            _conn.Open();
-            cmd.ExecuteNonQuery();
-            _conn.Close();
-        }
-
-        public void Actualizar(Empleado empleado)
-        {
-            string query = "UPDATE Empleados SET Nombre = @Nombre, Rol = @Rol, ZonaAcceso = @ZonaAcceso WHERE EmpleadoID = @EmpleadoID";
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            cmd.Parameters.AddWithValue("@Nombre", empleado.Nombre);
-            cmd.Parameters.AddWithValue("@Rol", empleado.Rol);
-            cmd.Parameters.AddWithValue("@ZonaAcceso", (object)empleado.ZonaAcceso ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@EmpleadoID", empleado.EmpleadoID);
-            _conn.Open();
-            cmd.ExecuteNonQuery();
-            _conn.Close();
-        }
-
-        public void Eliminar(int empleadoId)
-        {
-            string query = "DELETE FROM Empleados WHERE EmpleadoID = @ID";
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            cmd.Parameters.AddWithValue("@ID", empleadoId);
-            _conn.Open();
-            cmd.ExecuteNonQuery();
-            _conn.Close();
+            var empleado = GetById(id);
+            if (empleado != null)
+            {
+                empleados.Remove(empleado);
+            }
         }
     }
 }
-
